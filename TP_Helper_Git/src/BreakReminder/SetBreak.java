@@ -29,7 +29,7 @@ public class SetBreak extends javax.swing.JFrame {
       
        
        DateFormat df6 = new SimpleDateFormat("HH:mm");
-       String Box1 ="No Lunch",Box2 ="No Lunch",Box3 ="No Lunch";
+       String Box1 ="No Break",Box2 ="No Lunch",Box3 ="No Break";
        Date currentTime = new Date();
       Timer t1;
       Timer t2;
@@ -277,7 +277,7 @@ public class SetBreak extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             // Aqui se confirman los breaks
             //  setVisible(false);
-       if (!Box1.equals("No Lunch")){
+       if (!Box1.equals("No Break")){
        try
        {     Date currentTime = new Date();
              String currTime = df6.format(currentTime);
@@ -301,7 +301,7 @@ public class SetBreak extends javax.swing.JFrame {
              t1.start();
              t4= new Timer((int)TimeUnit.MINUTES.toMillis(break4), actions4);
              t4.start();}
-             else {JOptionPane.showMessageDialog(null,"Tu primer break ya paso!");}
+             else if(firstBreak<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu primer break ya paso!");}
              
        }
        catch (Exception ex )
@@ -335,8 +335,7 @@ public class SetBreak extends javax.swing.JFrame {
              t2.start();
              t5= new Timer((int)TimeUnit.MINUTES.toMillis(break5), actions5);
              t5.start();}
-             else{ JOptionPane.showMessageDialog(null,"Tu Lunch ya paso!");
-             }
+             else if(lunch<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu Lunch ya paso!");}
        }
        catch (Exception ex )
        {System.out.println(ex);}
@@ -345,7 +344,7 @@ public class SetBreak extends javax.swing.JFrame {
            
        JOptionPane.showMessageDialog(null,"No Lunch selected"); 
         
-        if (!Box3.equals("No Lunch")){
+        if (!Box3.equals("No Break")){
        try
        {     Date currentTime = new Date();
              String currTime = df6.format(currentTime);
@@ -368,8 +367,8 @@ public class SetBreak extends javax.swing.JFrame {
              t3.start();
              t6= new Timer((int)TimeUnit.MINUTES.toMillis(break6), actions6);
              t6.start();}
-             else{ JOptionPane.showMessageDialog(null,"Tu tercer break ya paso!");
-            } 
+             else if(thirdBreak<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu otro break ya paso!");}
+             
        }
        catch (Exception ex )
        {System.out.println(ex);}
@@ -427,10 +426,8 @@ public class SetBreak extends javax.swing.JFrame {
             
             public void run() {
             
-
-           
              new SetBreak().setVisible(true);
-              
+             new SetBreak().setDefaultCloseOperation(HIDE_ON_CLOSE);
             }   
         });
              
@@ -454,9 +451,7 @@ public class SetBreak extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 
-    
-        
-    
+ 
 
 
 
