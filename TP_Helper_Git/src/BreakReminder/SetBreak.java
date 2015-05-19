@@ -5,18 +5,12 @@
  */
 package BreakReminder;
 
-import cuadrosdialogo.Interruptor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Time;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.Action;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -24,20 +18,20 @@ import javax.swing.Timer;
  *
  * @author ozzIE
  */
-
+       
 public class SetBreak extends javax.swing.JFrame {
       
        
        DateFormat df6 = new SimpleDateFormat("HH:mm");
        String Box1 ="No Break",Box2 ="No Lunch",Box3 ="No Break";
        Date currentTime = new Date();
-      Timer t1;
-      Timer t2;
-      Timer t3;
-      Timer t4;
-      Timer t5;
-      Timer t6;
-      
+       Timer t1;
+       Timer t2;
+       Timer t3;
+       Timer t4;
+       Timer t5;
+       Timer t6;
+       int flag=0;
       
       
     public SetBreak() {
@@ -215,25 +209,25 @@ public class SetBreak extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+       
     public ActionListener actions1 = new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Tu primer Break es en 2 minutos!");
+             JOptionPane.showMessageDialog(null,"Remember your break is at "+Box1);
              t1.stop();
            }
        };
     public ActionListener actions2 = new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Tu segundo Break es en 2 minutos!");
+             JOptionPane.showMessageDialog(null,"Remember your Lunch is at "+Box2);
              t2.stop();
            }
        };
     public ActionListener actions3 = new ActionListener() {
            @Override
            public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null," Tu hora de comida es en 2 minutos!");
+             JOptionPane.showMessageDialog(null,"Remember your other break is at "+Box3);
              t3.stop();
            }
        };
@@ -289,7 +283,7 @@ public class SetBreak extends javax.swing.JFrame {
             
              //JOptionPane.showMessageDialog(null,"La Hora en minutos es:" + firstBreak);
               // Difference in time
-             long break1= (firstBreak - CurrTimeInMins)-2;
+             long break1= (firstBreak - CurrTimeInMins)-3;
              long break4= (firstBreak - CurrTimeInMins);
             
             
@@ -299,8 +293,10 @@ public class SetBreak extends javax.swing.JFrame {
                  //
              {t1= new Timer((int)TimeUnit.MINUTES.toMillis(break1), actions1);
              t1.start();
+             flag=1;
              t4= new Timer((int)TimeUnit.MINUTES.toMillis(break4), actions4);
-             t4.start();}
+             t4.start();
+             flag=4;}
              else if(firstBreak<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu primer break ya paso!");}
              
        }
@@ -326,15 +322,17 @@ public class SetBreak extends javax.swing.JFrame {
              //JOptionPane.showMessageDialog(null,"La Hora en minutos es:" + firstBreak);
               // Difference in time
              
-             long break2= (lunch - CurrTimeInMins)-2;
+             long break2= (lunch - CurrTimeInMins)-3;
              long break5= (lunch - CurrTimeInMins);
            
              if(lunch>=CurrTimeInMins)
                  //
              {t2= new Timer((int)TimeUnit.MINUTES.toMillis(break2), actions2);
              t2.start();
+             flag=2;
              t5= new Timer((int)TimeUnit.MINUTES.toMillis(break5), actions5);
-             t5.start();}
+             t5.start();
+             flag=5;}
              else if(lunch<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu Lunch ya paso!");}
        }
        catch (Exception ex )
@@ -357,16 +355,19 @@ public class SetBreak extends javax.swing.JFrame {
              //JOptionPane.showMessageDialog(null,"La Hora en minutos es:" + firstBreak);
               // Difference in time
             
-             long break3= (thirdBreak - CurrTimeInMins)-2;
+             long break3= (thirdBreak - CurrTimeInMins)-3;
              long break6= (thirdBreak - CurrTimeInMins);
             
              if(thirdBreak>=CurrTimeInMins)
                 // 
                  //
+             
              { t3= new Timer((int)TimeUnit.MINUTES.toMillis(break3), actions3);
              t3.start();
+             flag=3;
              t6= new Timer((int)TimeUnit.MINUTES.toMillis(break6), actions6);
-             t6.start();}
+             t6.start();
+             flag=6;}
              else if(thirdBreak<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu otro break ya paso!");}
              
        }
@@ -382,16 +383,35 @@ public class SetBreak extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
        //Cancel Breaks
-        t1.stop();
-        t2.stop();
-        t3.stop();
+       try
+       {    
+           t1.stop();
+           t2.stop();
+           t3.stop();
+           t4.stop();
+           t5.stop();
+           t6.stop();
+       }
+       catch (Exception ex )
+       {System.out.println(ex);}
+    
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // Refresh Breaks
-        t1.restart();
-        t2.restart();
-        t3.restart();
+       try
+       {    
+           t1.restart();
+           t2.restart();
+           t3.restart();
+           t4.restart();
+           t5.restart();
+           t6.restart();
+       }
+       catch (Exception ex )
+       {System.out.println(ex);}
+       
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
