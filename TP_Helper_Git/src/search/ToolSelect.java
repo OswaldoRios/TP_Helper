@@ -5,6 +5,8 @@
  */
 package search;
 
+import BreakReminder.SetBreak;
+
 /**
  *
  * @author ozzIE
@@ -16,6 +18,7 @@ public class ToolSelect extends javax.swing.JFrame {
      */
     public ToolSelect() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -58,28 +61,38 @@ public class ToolSelect extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jButton3.setText("Login as Administrator");
+        jButton3.setText("Salir");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addComponent(jButton3)
+                .addContainerGap(190, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(58, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jButton3)
-                .addGap(19, 19, 19))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Break Reminder");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +129,24 @@ public class ToolSelect extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        SetBreak set = new SetBreak();
+        set.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Display dis = new Display();
+        dis.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        PaginaPrincipal pg = new PaginaPrincipal();
+        pg.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
