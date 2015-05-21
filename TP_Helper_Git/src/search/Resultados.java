@@ -40,6 +40,9 @@ public class Resultados extends javax.swing.JFrame {
 
     private Resultados() {
         initComponents();
+        setLocationRelativeTo(null);
+         setTitle("RESULTADOS");
+        setSize(500, 350);
     }
 
     private void hacerConsulta(String res) {
