@@ -18,11 +18,15 @@ public class Usu_cont extends javax.swing.JDialog {
      */
     
     public Usu_cont() {
+        initComponents();
+        setTitle("USUARIO Y CONTRASEÑA");
+        setLocationRelativeTo(null);
     }
 
     public Usu_cont(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("USUARIO Y CONTRASEÑA");
         setLocationRelativeTo(null);
     }
 

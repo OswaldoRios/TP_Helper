@@ -5,13 +5,15 @@
  */
 package search;
 
+import PaginaPrincipalAdmin.Fondo;
 import conexion.main;
 import static conexion.main.sta;
+import java.awt.BorderLayout;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
-import static search.Display.conn;
-import static search.Display.rs;
-import static search.Display.st;
 
 /**
  *
@@ -22,10 +24,14 @@ public class Sugerir_preg extends javax.swing.JFrame {
     /**
      * Creates new form Sugerir_preg
      */
+    static Connection conn = null;
+    static Statement st = null;
+    static ResultSet rs = null;
     int id=100;
     public Sugerir_preg() {
-        setLocationRelativeTo(this);
         initComponents();
+        setLocationRelativeTo(null);
+        setTitle("SUGERIR PREGUNTA");
     }
 
     /**
@@ -48,6 +54,7 @@ public class Sugerir_preg extends javax.swing.JFrame {
         txtNomb = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(500, 350));
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -195,13 +202,11 @@ public class Sugerir_preg extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField txtNomb;

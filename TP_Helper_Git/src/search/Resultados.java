@@ -5,15 +5,16 @@
  */
 package search;
 
+import PaginaPrincipalAdmin.Fondo;
 import conexion.main;
 import static conexion.main.sta;
+import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static search.Display.conn;
 
 /**
  *
@@ -30,12 +31,11 @@ public class Resultados extends javax.swing.JFrame {
 
     public Resultados(String res) {
         initComponents();
-        setTitle("RESULTADOS");
-        setLocationRelativeTo(null);
         setVisible(true);
-        setSize(500, 500);
+        setLocationRelativeTo(null);
+        setTitle("RESULTADOS");
+        setSize(500, 350);
         hacerConsulta(res);
-
     }
 
     private Resultados() {
@@ -83,6 +83,8 @@ public class Resultados extends javax.swing.JFrame {
         txtArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(500, 300));
+        setSize(new java.awt.Dimension(500, 350));
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
