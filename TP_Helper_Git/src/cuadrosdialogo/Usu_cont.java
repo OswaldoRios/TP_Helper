@@ -5,16 +5,7 @@
  */
 package cuadrosdialogo;
 
-import conexion.main;
-import static conexion.main.sta;
 import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
-import search.Display;
-import search.PaginaPrincipal;
 
 /**
  *
@@ -22,18 +13,17 @@ import search.PaginaPrincipal;
  */
 public class Usu_cont extends javax.swing.JDialog {
 
-    static Connection conn = null;
-    static Statement st = null;
-    static ResultSet rs = null;
-
     /**
      * Creates new form Usu_cont
      */
+    
+    public Usu_cont() {
+    }
+
     public Usu_cont(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
-
     }
 
     /**
@@ -146,96 +136,28 @@ public class Usu_cont extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String nom, cont;
-        try {
-            //ejecuta la conexion
-            conn = main.Enlace(conn);
-            //ejecuta la consulta
-            st = sta(st);
-            rs = st.executeQuery("select *\n"
-                    + "from USUARIOS\n"
-                    + "where USUARIO like '" + txtUsu.getText() + "'");
-            rs.next();
-            nom = rs.getString(2);
-            cont = rs.getString(3);
-
-            if (nom.equals(txtUsu.getText()) && authenticate(cont)) {
-                setVisible(false);
-                Display dis = new Display();
-                dis.setVisible(true);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto", "ERROR", 1);
-            }
-            rs.close();
-            conn.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            
-        }
+       Usu_Contclass usu = new Usu_Contclass();
+            setVisible(false);
+            usu.conexionUsu(txtUsu.getText(),passCont.getPassword());
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void passContKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passContKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            String nom, cont;
-            try {
-                //ejecuta la conexion
-                conn = main.Enlace(conn);
-                //ejecuta la consulta
-                st = sta(st);
-                rs = st.executeQuery("select *\n"
-                        + "from USUARIOS\n"
-                        + "where USUARIO like '" + txtUsu.getText() + "'");
-                rs.next();
-                nom = rs.getString(2);
-                cont = rs.getString(3);
-
-                if (nom.equals(txtUsu.getText()) && authenticate(cont)) {
-                    setVisible(false);
-                    Display dis = new Display();
-                    dis.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto", "ERROR", 1);
-                }
-                rs.close();
-                conn.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            Usu_Contclass usu = new Usu_Contclass();
+            setVisible(false);
+            usu.conexionUsu(txtUsu.getText(),passCont.getPassword());
+            
         }
     }//GEN-LAST:event_passContKeyPressed
 
     private void txtUsuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            String nom, cont;
-            try {
-                //ejecuta la conexion
-                conn = main.Enlace(conn);
-                //ejecuta la consulta
-                st = sta(st);
-                rs = st.executeQuery("select *\n"
-                        + "from USUARIOS\n"
-                        + "where USUARIO like '" + txtUsu.getText() + "'");
-                rs.next();
-                nom = rs.getString(2);
-                cont = rs.getString(3);
-
-                if (nom.equals(txtUsu.getText()) && authenticate(cont)) {
-                    setVisible(false);
-                    Display dis = new Display();
-                    dis.setVisible(true);
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto", "ERROR", 1);
-                }
-                rs.close();
-                conn.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            Usu_Contclass usu = new Usu_Contclass();
+            setVisible(false);
+            usu.conexionUsu(txtUsu.getText(),passCont.getPassword());
         }
     }//GEN-LAST:event_txtUsuKeyPressed
 
@@ -280,26 +202,6 @@ public class Usu_cont extends javax.swing.JDialog {
             }
         });
     }
-
-    public boolean authenticate(String cont) {
-
-        char passArray[] = passCont.getPassword();
-        for (int i = 0; i < passArray.length; i++) {
-            char c = passArray[i];
-            if (!Character.isLetterOrDigit(c)) {
-                return false;
-            }
-        }
-
-        String pass = new String(passArray);
-
-        if (pass.equals(cont)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
