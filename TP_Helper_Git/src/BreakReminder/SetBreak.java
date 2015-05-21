@@ -36,7 +36,9 @@ public class SetBreak extends javax.swing.JFrame {
       
     public SetBreak() {
         initComponents();
-                                       
+        setResizable(false);
+        setLocationRelativeTo(null);
+        setTitle("SETBREAK");
     }
     /**
      * This method is called from within the constructor to initialize the form.

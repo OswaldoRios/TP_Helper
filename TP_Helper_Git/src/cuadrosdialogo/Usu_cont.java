@@ -6,6 +6,7 @@
 package cuadrosdialogo;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +17,6 @@ public class Usu_cont extends javax.swing.JDialog {
     /**
      * Creates new form Usu_cont
      */
-    
     public Usu_cont() {
         initComponents();
         setTitle("USUARIO Y CONTRASEÑA");
@@ -50,7 +50,7 @@ public class Usu_cont extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/peligro.2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/peligro.2.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -140,28 +140,41 @@ public class Usu_cont extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-       Usu_Contclass usu = new Usu_Contclass();
+        if (txtUsu.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto", "ERROR", 1);
+        } else {
+            Usu_Contclass usu = new Usu_Contclass();
             setVisible(false);
-            usu.conexionUsu(txtUsu.getText(),passCont.getPassword());
+            usu.conexionUsu(txtUsu.getText(), passCont.getPassword());
+        }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void passContKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passContKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Usu_Contclass usu = new Usu_Contclass();
-            setVisible(false);
-            usu.conexionUsu(txtUsu.getText(),passCont.getPassword());
-            
+            if (passCont.equals("")) {
+                JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto", "ERROR", 1);
+            } else {
+                Usu_Contclass usu = new Usu_Contclass();
+                setVisible(false);
+                usu.conexionUsu(txtUsu.getText(), passCont.getPassword());
+            }
+
         }
     }//GEN-LAST:event_passContKeyPressed
 
     private void txtUsuKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Usu_Contclass usu = new Usu_Contclass();
-            setVisible(false);
-            usu.conexionUsu(txtUsu.getText(),passCont.getPassword());
+            if (txtUsu.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto", "ERROR", 1);
+            } else {
+                Usu_Contclass usu = new Usu_Contclass();
+                setVisible(false);
+                usu.conexionUsu(txtUsu.getText(), passCont.getPassword());
+            }
         }
     }//GEN-LAST:event_txtUsuKeyPressed
 
