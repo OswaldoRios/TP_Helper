@@ -46,7 +46,7 @@ public class VerPreguntasSugeridas extends javax.swing.JFrame {
             rs = st.executeQuery("select *from PREGUNTAS_SUGERIDAS");
         //while sirve para avanzar por la busqueda sobre los resultados
             while (rs.next()) {
-                String prueba = rs.getObject(1).toString();
+                String prueba = rs.getObject(2).toString();
                 txtArea.setText(prueba);
                 
             }

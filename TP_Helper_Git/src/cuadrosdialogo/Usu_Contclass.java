@@ -40,7 +40,6 @@ public class Usu_Contclass {
 
                 if (nom.equals(usu) && authenticate(cont,cont2)) {
                     usu2 = rs.getObject(1).toString();
-                    System.out.println("valor de usu "+usu2);
                     PaginaPrincipalAdmin pp = new PaginaPrincipalAdmin();
                     pp.setVisible(true);
                 } else {
@@ -73,7 +72,6 @@ public class Usu_Contclass {
      }
 
     public String getUsu2() {
-        System.out.println("Valor de usu2"+usu2);
         return usu2;
     }
 }

@@ -22,7 +22,7 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     public PaginaPrincipal() {
          initComponents();
         setLocationRelativeTo(null);
-        setTitle("PAGINA PRINCIPAL ADMIN");
+        setTitle("PAGINA PRINCIPAL");
         setSize(500, 350);
         setResizable(false);
         Fondo f = new Fondo();
@@ -48,8 +48,18 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jLabel1.setText("Bienvenido a la busqueda de procesos");
 
         jButton1.setText("Administrador");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Agente");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +90,20 @@ public class PaginaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Usu_cont cont = new Usu_cont();
+        cont.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        ToolSelect tool = new ToolSelect();
+        tool.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

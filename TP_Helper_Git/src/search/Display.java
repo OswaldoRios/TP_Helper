@@ -25,9 +25,9 @@ import javax.swing.DefaultListModel;
  */
 public class Display extends javax.swing.JFrame {
 
-    static Connection conn = null;
-    static Statement st = null;
-    static ResultSet rs = null;
+    private Connection conn = null;
+    private Statement st = null;
+    private ResultSet rs = null;
     private String[][] arreglo;
     private int i = 0;
 
@@ -59,10 +59,13 @@ public class Display extends javax.swing.JFrame {
         listRes = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         txtIngBus.setText("Ingresar Busqueda");
         txtIngBus.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,9 +91,9 @@ public class Display extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
                 .addComponent(txtIngBus, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(40, 40, 40)
                 .addComponent(btnBuscar)
                 .addContainerGap(70, Short.MAX_VALUE))
             .addComponent(jSeparator1)
@@ -98,15 +101,18 @@ public class Display extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 14, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtIngBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         listRes.setModel(modelo);
         jScrollPane1.setViewportView(listRes);
@@ -132,44 +138,40 @@ public class Display extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 58, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
+                        .addGap(81, 81, 81)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 58, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(jSeparator2)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(5, 5, 5)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(19, 19, 19))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGap(7, 7, 7))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.PAGE_END);
 
-        jLabel1.setText("Opciones Encontradas");
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Opciones Encontradas");
+        jPanel3.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -178,35 +180,7 @@ public class Display extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
-        try {
-            modelo.clear();
-            conn = main.Enlace(conn);
-            st = sta(st);
-            rs = st.executeQuery("select PREG_ID, PREG\n"
-                    + "from PREGUNTAS\n"
-                    + "where UPPER (PREG) like '%" + txtIngBus.getText() + "%'  or lower (PREG) like '%" + txtIngBus.getText() + "%'");
-            //Poner los resultados en la lista
-            while (rs.next()) {
-                modelo.addElement(rs.getObject(2));
-                i++;
-            }
-            //agrega el resultado arreglo
-            arreglo = new String[i][2];
-            rs = st.executeQuery("select PREG_ID, PREG\n"
-                    + "from PREGUNTAS\n"
-                    + "where UPPER (PREG) like '%" + txtIngBus.getText() + "%'  or lower (PREG) like '%" + txtIngBus.getText() + "%'");
-            for (int j = 0; j < arreglo.length; j++) {
-                rs.next();
-                arreglo[j][0] = rs.getObject(1).toString();
-                arreglo[j][1] = rs.getObject(2).toString();
-
-            }
-
-            rs.close();
-            conn.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Display.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        hacerConsulta();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void txtIngBusMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtIngBusMouseClicked
@@ -216,6 +190,10 @@ public class Display extends javax.swing.JFrame {
 
     private void txtIngBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngBusActionPerformed
         // TODO add your handling code here:
+        hacerConsulta();
+    }//GEN-LAST:event_txtIngBusActionPerformed
+    private void hacerConsulta(){
+        
         try {
             modelo.clear();
             conn = main.Enlace(conn);
@@ -243,11 +221,9 @@ public class Display extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Display.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtIngBusActionPerformed
-
+    }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
         for (int j = 0; j < arreglo.length; j++) {
                  
             if (listRes.getSelectedIndex()==j && arreglo[j][1].equals(listRes.getSelectedValue().toString())) {
@@ -312,6 +288,7 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JList listRes;
     private DefaultListModel modelo;
     private javax.swing.JTextField txtIngBus;
