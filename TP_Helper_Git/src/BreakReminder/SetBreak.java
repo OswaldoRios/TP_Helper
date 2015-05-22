@@ -18,28 +18,26 @@ import javax.swing.Timer;
  *
  * @author ozzIE
  */
-       
 public class SetBreak extends javax.swing.JFrame {
-      
-       
-       DateFormat df6 = new SimpleDateFormat("HH:mm");
-       String Box1 ="No Break",Box2 ="No Lunch",Box3 ="No Break";
-       Date currentTime = new Date();
-       Timer t1;
-       Timer t2;
-       Timer t3;
-       Timer t4;
-       Timer t5;
-       Timer t6;
-       int flag=0;
-      
-      
+
+    DateFormat df6 = new SimpleDateFormat("HH:mm");
+    String Box1 = "No Break", Box2 = "No Lunch", Box3 = "No Break";
+    Date currentTime = new Date();
+    Timer t1;
+    Timer t2;
+    Timer t3;
+    Timer t4;
+    Timer t5;
+    Timer t6;
+    int flag = 0;
+
     public SetBreak() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
-        setTitle("SETBREAK");
+        setTitle("SET BREAKS");
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,7 +64,7 @@ public class SetBreak extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel4.setText("Selecciona La Hora de tus breaks");
+        jLabel4.setText("Selecciona de tus breaks y lunch");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -82,14 +80,14 @@ public class SetBreak extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Aqui podras guardar notas personales como dudas del dia\n\no sugestiones que quieras hacer");
+        jTextArea1.setText("\n\tAqui puedes tomar notas de extra breaks,\n\t desconexiones que tuviste o etcetera.");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -138,21 +136,21 @@ public class SetBreak extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Set Breaks");
+        jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Cancel Breaks");
+        jButton3.setText("Cancelar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Refresh Breaks");
+        jButton2.setText("Actualizar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -167,7 +165,7 @@ public class SetBreak extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,214 +209,247 @@ public class SetBreak extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-       
+
     public ActionListener actions1 = new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Remember your break is at "+Box1);
-             t1.stop();
-           }
-       };
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Remember your break is at " + Box1);
+            t1.stop();
+        }
+    };
     public ActionListener actions2 = new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Remember your Lunch is at "+Box2);
-             t2.stop();
-           }
-       };
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Remember your Lunch is at " + Box2);
+            t2.stop();
+        }
+    };
     public ActionListener actions3 = new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Remember your other break is at "+Box3);
-             t3.stop();
-           }
-       };
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Remember your other break is at " + Box3);
+            t3.stop();
+        }
+    };
     public ActionListener actions4 = new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Its Time To Take Your First Break!");
-             t4.stop();
-           }
-       };
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Its Time To Take Your First Break!");
+            t4.stop();
+        }
+    };
     public ActionListener actions5 = new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Its Time To Take Your Lunch!");
-             t5.stop();
-           }
-       };
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Its Time To Take Your Lunch!");
+            t5.stop();
+        }
+    };
     public ActionListener actions6 = new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-             JOptionPane.showMessageDialog(null,"Its Time To Take Your Second Break!");
-             t6.stop();
-           }
-       };
-    
-    
-    
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "Its Time To Take Your Second Break!");
+            t6.stop();
+        }
+    };
+
+
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        Box1 =(String)jComboBox1.getSelectedItem( );
-        
+        Box1 = (String) jComboBox1.getSelectedItem();
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-         Box2 =(String)jComboBox2.getSelectedItem( );
+        Box2 = (String) jComboBox2.getSelectedItem();
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
-        Box3 =(String)jComboBox3.getSelectedItem( );
+        Box3 = (String) jComboBox3.getSelectedItem();
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             // Aqui se confirman los breaks
-            //  setVisible(false);
-       if (!Box1.equals("No Break")){
-       try
-       {     Date currentTime = new Date();
-             String currTime = df6.format(currentTime);
-             String[] split = currTime.split(":");
-             long CurrTimeInMins= TimeUnit.HOURS.toMinutes(Integer.parseInt(split[0]))+Integer.parseInt(split[1]);
-             //Primer Break
-             String[] split1 = Box1.split(":");
-             long firstBreak= TimeUnit.HOURS.toMinutes(Integer.parseInt(split1[0]))+Integer.parseInt(split1[1]);
-            
+        //  setVisible(false);
+        if (!Box1.equals("No Break")) {
+            try {
+                Date currentTime = new Date();
+                String currTime = df6.format(currentTime);
+                String[] split = currTime.split(":");
+                long CurrTimeInMins = TimeUnit.HOURS.toMinutes(Integer.parseInt(split[0])) + Integer.parseInt(split[1]);
+                //Primer Break
+                String[] split1 = Box1.split(":");
+                long firstBreak = TimeUnit.HOURS.toMinutes(Integer.parseInt(split1[0])) + Integer.parseInt(split1[1]);
+
              //JOptionPane.showMessageDialog(null,"La Hora en minutos es:" + firstBreak);
-              // Difference in time
-             long break1= (firstBreak - CurrTimeInMins)-3;
-             long break4= (firstBreak - CurrTimeInMins);
-            
-            
-             
-             if(firstBreak>=CurrTimeInMins)
-                 //
-                 //
-             {t1= new Timer((int)TimeUnit.MINUTES.toMillis(break1), actions1);
-             t1.start();
-             flag=1;
-             t4= new Timer((int)TimeUnit.MINUTES.toMillis(break4), actions4);
-             t4.start();
-             flag=4;}
-             else if(firstBreak<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu primer break ya paso!");}
-             
-       }
-       catch (Exception ex )
-       {System.out.println(ex);}
-    }
-         else     
-           
-       JOptionPane.showMessageDialog(null,"No first break selected");
-        
-        if (!Box2.equals("No Lunch")){
-       try
-       {     Date currentTime = new Date();
-             String currTime = df6.format(currentTime);
-             String[] split = currTime.split(":");
-             long CurrTimeInMins= TimeUnit.HOURS.toMinutes(Integer.parseInt(split[0]))+Integer.parseInt(split[1]);
-             
-             //Lunch
-             String[] split2 = Box2.split(":");
-             long lunch= TimeUnit.HOURS.toMinutes(Integer.parseInt(split2[0]))+Integer.parseInt(split2[1]);
+                // Difference in time
+                long break1 = (firstBreak - CurrTimeInMins) - 3;
+                long break4 = (firstBreak - CurrTimeInMins);
+
+                if (firstBreak >= CurrTimeInMins) //
+                //
+                {
+                    t1 = new Timer((int) TimeUnit.MINUTES.toMillis(break1), actions1);
+                    t1.start();
+                    flag = 1;
+                    t4 = new Timer((int) TimeUnit.MINUTES.toMillis(break4), actions4);
+                    t4.start();
+                    flag = 4;
+                } else if (firstBreak < CurrTimeInMins) {
+                    JOptionPane.showMessageDialog(null, "Tu primer break ya paso!");
+                }
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No first break selected");
+        }
+
+        if (!Box2.equals("No Lunch")) {
+            try {
+                Date currentTime = new Date();
+                String currTime = df6.format(currentTime);
+                String[] split = currTime.split(":");
+                long CurrTimeInMins = TimeUnit.HOURS.toMinutes(Integer.parseInt(split[0])) + Integer.parseInt(split[1]);
+
+                //Lunch
+                String[] split2 = Box2.split(":");
+                long lunch = TimeUnit.HOURS.toMinutes(Integer.parseInt(split2[0])) + Integer.parseInt(split2[1]);
              //Segundo Break
-            
+
              //JOptionPane.showMessageDialog(null,"La Hora en minutos es:" + firstBreak);
-              // Difference in time
-             
-             long break2= (lunch - CurrTimeInMins)-3;
-             long break5= (lunch - CurrTimeInMins);
-           
-             if(lunch>=CurrTimeInMins)
-                 //
-             {t2= new Timer((int)TimeUnit.MINUTES.toMillis(break2), actions2);
-             t2.start();
-             flag=2;
-             t5= new Timer((int)TimeUnit.MINUTES.toMillis(break5), actions5);
-             t5.start();
-             flag=5;}
-             else if(lunch<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu Lunch ya paso!");}
-       }
-       catch (Exception ex )
-       {System.out.println(ex);}
-    }
-         else     
-           
-       JOptionPane.showMessageDialog(null,"No Lunch selected"); 
-        
-        if (!Box3.equals("No Break")){
-       try
-       {     Date currentTime = new Date();
-             String currTime = df6.format(currentTime);
-             String[] split = currTime.split(":");
-             long CurrTimeInMins= TimeUnit.HOURS.toMinutes(Integer.parseInt(split[0]))+Integer.parseInt(split[1]);
-            
-             //Segundo Break
-             String[] split3 = Box3.split(":");
-             long thirdBreak= TimeUnit.HOURS.toMinutes(Integer.parseInt(split3[0]))+Integer.parseInt(split3[1]);
+                // Difference in time
+                long break2 = (lunch - CurrTimeInMins) - 3;
+                long break5 = (lunch - CurrTimeInMins);
+
+                if (lunch >= CurrTimeInMins) //
+                {
+                    t2 = new Timer((int) TimeUnit.MINUTES.toMillis(break2), actions2);
+                    t2.start();
+                    flag = 2;
+                    t5 = new Timer((int) TimeUnit.MINUTES.toMillis(break5), actions5);
+                    t5.start();
+                    flag = 5;
+                } else if (lunch < CurrTimeInMins) {
+                    JOptionPane.showMessageDialog(null, "Tu Lunch ya paso!");
+                }
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No Lunch selected");
+        }
+
+        if (!Box3.equals("No Break")) {
+            try {
+                Date currentTime = new Date();
+                String currTime = df6.format(currentTime);
+                String[] split = currTime.split(":");
+                long CurrTimeInMins = TimeUnit.HOURS.toMinutes(Integer.parseInt(split[0])) + Integer.parseInt(split[1]);
+
+                //Segundo Break
+                String[] split3 = Box3.split(":");
+                long thirdBreak = TimeUnit.HOURS.toMinutes(Integer.parseInt(split3[0])) + Integer.parseInt(split3[1]);
              //JOptionPane.showMessageDialog(null,"La Hora en minutos es:" + firstBreak);
-              // Difference in time
-            
-             long break3= (thirdBreak - CurrTimeInMins)-3;
-             long break6= (thirdBreak - CurrTimeInMins);
-            
-             if(thirdBreak>=CurrTimeInMins)
-                // 
-                 //
-             
-             { t3= new Timer((int)TimeUnit.MINUTES.toMillis(break3), actions3);
-             t3.start();
-             flag=3;
-             t6= new Timer((int)TimeUnit.MINUTES.toMillis(break6), actions6);
-             t6.start();
-             flag=6;}
-             else if(thirdBreak<CurrTimeInMins){JOptionPane.showMessageDialog(null,"Tu otro break ya paso!");}
-             
-       }
-       catch (Exception ex )
-       {System.out.println(ex);}
-    }
-         else     
-           
-       JOptionPane.showMessageDialog(null,"No third break selected");
-            
-        
+                // Difference in time
+
+                long break3 = (thirdBreak - CurrTimeInMins) - 3;
+                long break6 = (thirdBreak - CurrTimeInMins);
+
+                if (thirdBreak >= CurrTimeInMins) // 
+                //
+                {
+                    t3 = new Timer((int) TimeUnit.MINUTES.toMillis(break3), actions3);
+                    t3.start();
+                    flag = 3;
+                    t6 = new Timer((int) TimeUnit.MINUTES.toMillis(break6), actions6);
+                    t6.start();
+                    flag = 6;
+                } else if (thirdBreak < CurrTimeInMins) {
+                    JOptionPane.showMessageDialog(null, "Tu otro break ya paso!");
+                }
+
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "No third break selected");
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       //Cancel Breaks
-       try
-       {    
-           t1.stop();
-           t2.stop();
-           t3.stop();
-           t4.stop();
-           t5.stop();
-           t6.stop();
-       }
-       catch (Exception ex )
-       {System.out.println(ex);}
-    
-       
+        //Cancel Breaks
+        try {
+            t1.stop();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t2.stop();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t3.stop();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t4.stop();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t5.stop();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t6.stop();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       try
-       {    
-           t1.restart();
-           t2.restart();
-           t3.restart();
-           t4.restart();
-           t5.restart();
-           t6.restart();
-       }
-       catch (Exception ex )
-       {System.out.println(ex);}
-       
-        
+        try {
+            t1.restart();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t2.restart();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t3.restart();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+        try {
+            t4.restart();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+       try {
+            t5.restart();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
+       try {
+            t6.restart();
+        } catch (Exception ex) {
+            System.out.println("Este timer no se a inicializado");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -444,15 +475,15 @@ public class SetBreak extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-         java.awt.EventQueue.invokeLater(new Runnable() {
-            
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
-            
-             new SetBreak().setVisible(true);
-             new SetBreak().setDefaultCloseOperation(HIDE_ON_CLOSE);
-            }   
+
+                new SetBreak().setVisible(true);
+                new SetBreak().setDefaultCloseOperation(HIDE_ON_CLOSE);
+            }
         });
-             
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -472,9 +503,5 @@ public class SetBreak extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
-
- 
-
-
 
 }

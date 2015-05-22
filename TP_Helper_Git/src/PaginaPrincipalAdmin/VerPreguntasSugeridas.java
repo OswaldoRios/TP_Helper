@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import search.Display;
 
 /**
@@ -43,11 +44,10 @@ public class VerPreguntasSugeridas extends javax.swing.JFrame {
 
             conn = main.Enlace(conn);
             st = sta(st);
-            rs = st.executeQuery("select *from PREGUNTAS_SUGERIDAS");
+            rs = st.executeQuery("select * from PREGUNTAS_SUGERIDAS");
         //while sirve para avanzar por la busqueda sobre los resultados
             while (rs.next()) {
-                String prueba = rs.getObject(2).toString();
-                txtArea.setText(prueba);
+                modelo.addElement(rs.getObject(2));
                 
             }
 
@@ -71,8 +71,9 @@ public class VerPreguntasSugeridas extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtArea = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        modelo = new DefaultListModel();
+        jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,11 +98,10 @@ public class VerPreguntasSugeridas extends javax.swing.JFrame {
 
         jPanel3.setLayout(new java.awt.BorderLayout());
 
-        txtArea.setColumns(20);
-        txtArea.setRows(5);
-        jScrollPane1.setViewportView(txtArea);
+        jList1.setModel(modelo);
+        jScrollPane2.setViewportView(jList1);
 
-        jPanel3.add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        jPanel3.add(jScrollPane2, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -153,10 +153,11 @@ public class VerPreguntasSugeridas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JList jList1;
+    private DefaultListModel modelo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea txtArea;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
