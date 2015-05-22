@@ -270,6 +270,8 @@ public class SetBreak extends javax.swing.JFrame {
         {t6.stop();} 
         catch (Exception ex )
         {System.out.println("Este timer no se a inicializado");}
+        JOptionPane.showMessageDialog(null,"Se han cancelado los breaks!");
+        setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
